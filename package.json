@@ -6,11 +6,9 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "dev": "npm-run-all start:dev build:tailwind",
     "start": "node artisan serve",
     "start:dev": "node artisan serve --watch",
-    "build": "node artisan build",
-    "build:tailwind": "tailwindcss -i ./src/resources/css/main.css -o ./public/css/main.css --watch",
+    "build": "tailwindcss -i ./src/resources/css/main.scss -o ./public/css/main.css && node artisan build && cp -r public build/public",
     "test": "npm run --silent lint:fix && node artisan test",
     "test:debug": "npm run --silent lint:fix && cross-env NODE_DEBUG=athenna:* node --inspect artisan test",
     "test:coverage": "c8 npm run --silent test",

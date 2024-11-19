@@ -1,0 +1,16 @@
+<header class="max-w-3xl mb-6">
+  <a href="/">
+    <img class="w-28 mt-20 mb-4 rounded-full" src="/public/img/logos/me.png" alt="me" />
+  </a>
+  <nav class="mt-2 mb-4 nav-dots">
+    <li><a href="/" class="transition-colors {{ request.baseUrl == '/' ? 'text-[color:var(--highlight)] font-bold' : '' }} hover:text-[color:--highlight]">About</a></li>
+    <li><a href="/articles" class="transition-colors {{ request.baseUrl == '/articles' ? 'text-[color:var(--highlight)] font-bold' : '' }} hover:text-[color:--highlight]">Articles</a></li>
+  </nav>
+  @if (title)
+    <h1 class="text-5xl font-bold text-[color:--heading]">{{ title }}</h1>
+  @end
+  @if (description)
+    <p class="text-base text-justify mt-6">{{ description }}</p>
+  @end
+</header>
+

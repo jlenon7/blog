@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/css/main.css">
+  <title>{{ title || "lenonsec.com" }}</title>
+  <script src="/public/js/main.js"></script>
+  <script src="https://unpkg.com/htmx.org"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  @if ($slots.meta)
+    {{{ await $slots.meta() }}}
+  @endif
+</head>
+<body>
+  {{{ await $slots.main() }}}
+  <script>
+    feather.replace()
+
+    document.addEventListener('htmx:beforeSwap', event => {
+      // Remove former load button from article-list.
+      if (event.target && event.target.id === 'article-list') {
+        const buttons = document.querySelectorAll('#article-list button')
+
+        buttons.forEach(button => button.remove())
+      }
+    })
+
+    document.addEventListener('htmx:afterSwap', event => {
+      // Replace feather icons after HTMX swap.
+      feather.replace()
+    })
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,118 @@
+{
+  "services": [
+    "#src/services/home.service",
+    "#src/services/article.service"
+  ],
+  "providers": [
+    "@athenna/core/providers/CoreProvider",
+    "@athenna/view/providers/ViewProvider",
+    "@athenna/http/providers/HttpRouteProvider",
+    "@athenna/http/providers/HttpServerProvider",
+    "@athenna/database/providers/DatabaseProvider"
+  ],
+  "controllers": [
+    "#src/http/controllers/home.controller",
+    "#src/http/controllers/article.controller"
+  ],
+  "commands": {
+    "configure": "@athenna/artisan/commands/ConfigureCommand",
+    "route:list": "@athenna/http/commands/RouteListCommand",
+    "template:customize": "@athenna/artisan/commands/TemplateCustomizeCommand",
+    "make:exception": "@athenna/core/commands/MakeExceptionCommand",
+    "make:facade": "@athenna/core/commands/MakeFacadeCommand",
+    "make:provider": "@athenna/core/commands/MakeProviderCommand",
+    "make:service": "@athenna/core/commands/MakeServiceCommand",
+    "make:test": "@athenna/core/commands/MakeTestCommand",
+    "make:command": "@athenna/artisan/commands/MakeCommandCommand",
+    "make:controller": "@athenna/http/commands/MakeControllerCommand",
+    "make:middleware": "@athenna/http/commands/MakeMiddlewareCommand",
+    "make:interceptor": "@athenna/http/commands/MakeInterceptorCommand",
+    "make:terminator": "@athenna/http/commands/MakeTerminatorCommand",
+    "make:view": "@athenna/view/commands/MakeViewCommand",
+    "serve": {
+      "path": "@athenna/core/commands/ServeCommand",
+      "stayAlive": true
+    },
+    "build": {
+      "path": "@athenna/core/commands/BuildCommand",
+      "outDir": "build",
+      "tsconfig": "node_modules/@athenna/tsconfig/tsconfig.app-build.json",
+      "include": [
+        "package.json",
+        "package-lock.json",
+        ".athennarc.json"
+      ]
+    },
+    "test": {
+      "path": "@athenna/core/commands/TestCommand",
+      "env": "test",
+      "loadApp": true,
+      "stayAlive": true
+    },
+    "repl": {
+      "path": "@athenna/core/commands/ReplCommand",
+      "stayAlive": true
+    },
+    "install": {
+      "path": "@athenna/core/commands/InstallCommand",
+      "registry": "npm"
+    },
+    "make:model": "@athenna/database/commands/MakeModelCommand",
+    "make:seeder": "@athenna/database/commands/MakeSeederCommand",
+    "make:migration": "@athenna/database/commands/MakeMigrationCommand",
+    "make:crud": {
+      "path": "@athenna/database/commands/MakeCrudCommand",
+      "fileCase": "toDotCase"
+    },
+    "db:fresh": {
+      "path": "@athenna/database/commands/DbFreshCommand",
+      "loadApp": true,
+      "loadAllCommands": true
+    },
+    "db:seed": {
+      "path": "@athenna/database/commands/DbSeedCommand",
+      "loadApp": true
+    },
+    "db:wipe": {
+      "path": "@athenna/database/commands/DbWipeCommand",
+      "loadApp": true
+    },
+    "migration:run": {
+      "path": "@athenna/database/commands/MigrationRunCommand",
+      "loadApp": true
+    },
+    "migration:revert": {
+      "path": "@athenna/database/commands/MigrationRevertCommand",
+      "loadApp": true
+    }
+  },
+  "templates": {
+    "exception": "node_modules/@athenna/core/templates/exception.edge",
+    "facade": "node_modules/@athenna/core/templates/facade.edge",
+    "provider": "node_modules/@athenna/core/templates/provider.edge",
+    "service": "node_modules/@athenna/core/templates/service.edge",
+    "test": "node_modules/@athenna/core/templates/test.edge",
+    "test-fn": "node_modules/@athenna/core/templates/test-fn.edge",
+    "test-console": "node_modules/@athenna/core/templates/test-console.edge",
+    "test-http": "node_modules/@athenna/core/templates/test-http.edge",
+    "command": "node_modules/@athenna/artisan/templates/command.edge",
+    "controller": "node_modules/@athenna/http/templates/controller.edge",
+    "middleware": "node_modules/@athenna/http/templates/middleware.edge",
+    "interceptor": "node_modules/@athenna/http/templates/interceptor.edge",
+    "terminator": "node_modules/@athenna/http/templates/terminator.edge",
+    "view": "node_modules/@athenna/view/templates/view.edge",
+    "model": "node_modules/@athenna/database/templates/model.edge",
+    "seeder": "node_modules/@athenna/database/templates/seeder.edge",
+    "migration": "node_modules/@athenna/database/templates/migration.edge",
+    "crud-model": "node_modules/@athenna/database/templates/crud-model.edge",
+    "crud-migration": "node_modules/@athenna/database/templates/crud-migration.edge",
+    "crud-service": "node_modules/@athenna/database/templates/crud-service.edge",
+    "crud-controller": "node_modules/@athenna/database/templates/crud-controller.edge",
+    "crud-service-test": "node_modules/@athenna/database/templates/crud-service-test.edge",
+    "crud-controller-test": "node_modules/@athenna/database/templates/crud-controller-test.edge"
+  },
+  "models": [
+    "#src/models/article",
+    "#src/models/experience"
+  ]
+}

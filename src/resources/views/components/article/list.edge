@@ -1,0 +1,27 @@
+@each(article in articles.data)
+    <a href="/articles/{{ article.id }}" class="block">
+      <strong class="block text-2xl transition-colors text-[color:--heading] hover:text-[color:--highlight]">
+        {{ article.title }}
+        <span class="inline-block align-middle">
+          <i class="relative bottom-[1px]" data-feather="chevron-right"></i>
+        </span>
+      </strong>
+      <p class="text-[color:--body] mt-2 mb-6 leading-6">{{ article.description }}</p>
+      <div class="flex text-sm items-center text-[color:--info]">
+        <span class="mr-2">
+          <i data-feather="calendar"></i>
+        </span>
+        <time class="mr-4">{{ dateFns.format(article.created_at, "PP") }}</time>
+      </div>
+    </a>
+  @end
+  @if (articles.meta.currentPage + 1 < articles.meta.totalPages)
+    <button
+      class="text-[color:--highlight] font-semibold text-[1.2rem] !mt-12 !mb-10 transition-transform duration-200 hover:-translate-y-1"
+      hx-get="/articles?page={{ articles.meta.currentPage ? articles.meta.currentPage + 1 : 1 }}"
+      hx-target="#article-list"
+      hx-swap="beforeend"
+    >
+      Load more articles
+    </button>
+  @end

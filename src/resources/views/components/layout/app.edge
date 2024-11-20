@@ -31,6 +31,35 @@
       // Replace feather icons after HTMX swap.
       feather.replace()
     })
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      htmlElement.classList.add('dark');
+      themeToggle.innerHTML = '<i data-feather="moon"></i>';
+    } else {
+      htmlElement.classList.remove('dark');
+      themeToggle.innerHTML = '<i data-feather="sun"></i>';
+    }
+
+    feather.replace();
+
+    themeToggle.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+
+        themeToggle.innerHTML = '<i data-feather="sun"></i>';
+      } else {
+        htmlElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+
+        themeToggle.innerHTML = '<i data-feather="moon"></i>';
+      }
+
+      feather.replace();
+    });
   </script>
 </body>
 </html>

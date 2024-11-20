@@ -39,12 +39,22 @@
 
 :root {
   --highlight: #ff57b2;
+  --heading: #1a1d23;
+  --background: #f8f8f8;
+  --info: #555555;
+  --yellow: #ffd700;
+  --body: #333333;
+  --border: #dddddd;
+}
+
+.dark {
+  --highlight: #ff57b2;
   --heading: #f8f8f8;
   --background: #1a1d23;
   --info: #bbbbbb;
   --yellow: #ffff92;
   --body: #d7d7d7;
-  --border: rgb(45, 48, 53);
+  --border: #333333;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -106,4 +116,16 @@ a {
 
 .nav-dots li:last-child::after {
   @apply hidden;
+}
+
+#theme-toggle {
+  top: 0.1rem;
+  right: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+#theme-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }

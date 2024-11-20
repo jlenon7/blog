@@ -5,5 +5,10 @@ export default {
   theme: {
     extend: {}
   },
+  safelist: [
+    {
+      pattern: /./
+    }
+  ],
   plugins: []
 }

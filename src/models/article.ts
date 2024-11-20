@@ -1,4 +1,3 @@
-import { ulid } from 'ulid'
 import { faker } from '@faker-js/faker'
 import { String } from '@athenna/common'
 import { Column, BaseModel } from '@athenna/database'
@@ -27,12 +26,6 @@ export class Article extends BaseModel {
 
   @Column({ isDeleteDate: true })
   public deleted_at: Date
-
-  public static attributes(): Record<string, unknown> {
-    return {
-      id: ulid()
-    }
-  }
 
   public static async definition(): Promise<Partial<Article>> {
     const content = `<h1>${String.toSentenceCase(

@@ -29,6 +29,23 @@ export class ArticleController {
       request.only(['title', 'description', 'content'])
     )
 
-    return response.status(200).body(article)
+    return response.status(201).send(article)
+  }
+
+  public async update({ request, response }: Context) {
+    const articleService = new ArticleService()
+    const article = await articleService.update(
+      request.param('id'),
+      request.only(['title', 'description', 'content'])
+    )
+
+    return response.status(200).send(article)
+  }
+
+  public async delete({ request, response }: Context) {
+    const articleService = new ArticleService()
+    await articleService.delete(request.param('id'))
+
+    return response.status(204).send()
   }
 }

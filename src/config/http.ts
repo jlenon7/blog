@@ -126,7 +126,7 @@ export default {
   */
 
   swagger: {
-    enabled: true,
+    enabled: false,
     ui: {
       staticCSP: true,
       routePrefix: '/docs'

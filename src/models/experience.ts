@@ -1,4 +1,3 @@
-import { ulid } from 'ulid'
 import { faker } from '@faker-js/faker'
 import { String } from '@athenna/common'
 import { Column, BaseModel } from '@athenna/database'
@@ -65,12 +64,6 @@ export class Experience extends BaseModel {
     date.setFullYear(year)
 
     return date
-  }
-
-  public static attributes(): Record<string, unknown> {
-    return {
-      id: ulid()
-    }
   }
 
   public static async definition(): Promise<Partial<Experience>> {

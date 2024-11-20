@@ -1,3 +1,4 @@
+import { ulid } from 'ulid'
 import { File, Path } from '@athenna/common'
 import { BaseSeeder } from '@athenna/database'
 import { Experience } from '#src/models/experience'
@@ -9,6 +10,7 @@ export class ExperienceSeeder extends BaseSeeder {
     ).getContentAsJson()
 
     await Experience.create({
+      id: ulid(),
       role: 'System Engineer',
       company: 'Cloudflare',
       base64_company_logo: images.Cloudflare,
@@ -17,6 +19,7 @@ export class ExperienceSeeder extends BaseSeeder {
     })
 
     await Experience.create({
+      id: ulid(),
       role: 'Contributor',
       company: 'Node.js',
       base64_company_logo: images['Node.js'],
@@ -25,6 +28,7 @@ export class ExperienceSeeder extends BaseSeeder {
     })
 
     await Experience.create({
+      id: ulid(),
       role: 'Core Team (Co-Creator)',
       company: 'Athenna Framework',
       base64_company_logo: images['Athenna Framework'],
@@ -33,6 +37,7 @@ export class ExperienceSeeder extends BaseSeeder {
     })
 
     await Experience.create({
+      id: ulid(),
       role: 'Software Engineering Consultant at Reflaunt',
       company: 'Smart Consulting',
       base64_company_logo: images['Smart Consulting'],
@@ -41,6 +46,7 @@ export class ExperienceSeeder extends BaseSeeder {
     })
 
     await Experience.create({
+      id: ulid(),
       role: 'Back-end Developer',
       company: 'Semantix',
       base64_company_logo: images.Semantix,
@@ -49,6 +55,7 @@ export class ExperienceSeeder extends BaseSeeder {
     })
 
     await Experience.create({
+      id: ulid(),
       role: 'Back-end Developer and DevOps',
       company: 'BraPay',
       base64_company_logo: images.BraPay,
@@ -57,6 +64,7 @@ export class ExperienceSeeder extends BaseSeeder {
     })
 
     await Experience.create({
+      id: ulid(),
       role: 'Freelance Software Engineer',
       company: 'Netliv',
       base64_company_logo: images.Netliv,

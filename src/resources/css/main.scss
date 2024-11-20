@@ -32,10 +32,8 @@
     font-size: 1rem;
   }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--background);
-    color: var(--body);
+  .section {
+    @apply px-4 py-6;
   }
 }
 

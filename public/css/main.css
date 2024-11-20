@@ -588,10 +588,11 @@ h6 {
   font-size: 1rem;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--background);
-  color: var(--body);
+.section {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .sr-only {

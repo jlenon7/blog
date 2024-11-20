@@ -1,12 +1,10 @@
 @layout.app({ title: 'Articles | Lenon blog'})
   @slot('main')
-    <main class="mx-auto max-w-3xl">
-      <section>
-        @!layout.header()
-        <div id="article-list" class="space-y-12">
-          @!article.list({ articles })
-        </div>
-      </section>
+    <main class="section mx-auto max-w-3xl">
+      @!layout.header()
+      <div id="article-list" class="space-y-12">
+        @!article.list({ articles })
+      </div>
     </main>
   @endslot
 @end

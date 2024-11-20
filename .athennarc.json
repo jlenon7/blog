@@ -114,5 +114,8 @@
   "models": [
     "#src/models/article",
     "#src/models/experience"
+  ],
+  "middlewares": [
+    "#src/http/middlewares/auth.middleware"
   ]
 }

@@ -6,4 +6,6 @@ Route.get('/articles/:id', 'ArticleController.show')
 
 Route.group(() => {
   Route.post('/articles', 'ArticleController.store')
-}).prefix('/api/v1')
+})
+  .prefix('/api/v1')
+  .middleware('auth')

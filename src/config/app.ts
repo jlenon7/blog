@@ -24,6 +24,19 @@ export default {
 
   /*
   |--------------------------------------------------------------------------
+  | Application Key
+  |--------------------------------------------------------------------------
+  |
+  | This value is the key of your application and can used when you
+  | need to authenticate your application using API keys or hashing some
+  | value.
+  |
+  */
+
+  key: Env('APP_KEY'),
+
+  /*
+  |--------------------------------------------------------------------------
   | Application Name
   |--------------------------------------------------------------------------
   |

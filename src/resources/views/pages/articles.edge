@@ -2,7 +2,7 @@
   @slot('main')
     <main class="section mx-auto max-w-3xl">
       @!layout.header()
-      <div x-data="articlesComponent()">
+      <div x-data="articlesComponent()" x-init="init()">
         <template x-for="article in articles.data" :key="article.id">
           <a :href="`/articles/${article.id}`" class="block">
             <strong class="block text-2xl transition-colors text-[color:--heading] hover:text-[color:--highlight]">
@@ -36,7 +36,7 @@
 
 <script>
   function articlesComponent() {
-    let articles = { data: [], meta: { totalPages: 1, currentPage: 1 } }
+    let articles = { data: [], meta: { totalPages: 1, currentPage: 0 } }
 
     return {
       articles,

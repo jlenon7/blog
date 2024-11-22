@@ -1,9 +1,6 @@
 import { join } from 'node:path'
 import Encore from '@symfony/webpack-encore'
 
-// const { join } = require('node:path')
-// const Encore = require('@symfony/webpack-encore')
-
 /*
 |--------------------------------------------------------------------------
 | Encore runtime environment

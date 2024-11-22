@@ -5,10 +5,6 @@ export default {
   theme: {
     extend: {}
   },
-  // safelist: [
-  //   {
-  //     pattern: /./
-  //   }
-  // ],
+  safelist: ['mt-4'],
   plugins: []
 }

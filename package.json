@@ -6,7 +6,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
-    "start": "node artisan serve", 
+    "start": "node artisan serve",
     "start:dev": "node artisan serve --watch",
     "build": "encore production && node artisan build && cp -r public build/public && cp -r src/resources/views build/src/resources/views",
     "test": "npm run --silent lint:fix && node artisan test",

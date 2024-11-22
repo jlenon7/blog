@@ -1,3 +1,5 @@
+import * as dateFns from 'date-fns'
+
 import { ulid } from 'ulid'
 import { Service } from '@athenna/ioc'
 import { Article } from '#src/models/article'
@@ -5,10 +7,18 @@ import { Article } from '#src/models/article'
 @Service()
 export class ArticleService {
   public async findAll(page = 0) {
-    return Article.query()
+    const articles = await Article.query()
       .select('id', 'title', 'description', 'created_at', 'deleted_at')
       .orderBy('created_at', 'desc')
       .paginate(page, 5)
+
+    articles.data = articles.data.map(article => {
+      article.created_at = dateFns.format(article.created_at, 'PP')
+
+      return article
+    })
+
+    return articles
   }
 
   public async findById(id: string) {

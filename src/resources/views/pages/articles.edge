@@ -40,7 +40,7 @@
 
     return {
       articles,
-      async fetchArticles(page = 1) {
+      async fetchArticles(page = 0) {
         try {
           const response = await fetch(`/api/v1/articles?page=${page}`)
           const data = await response.json()

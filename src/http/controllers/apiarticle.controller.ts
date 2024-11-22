@@ -1,5 +1,3 @@
-import * as dateFns from 'date-fns'
-
 import { Controller, type Context } from '@athenna/http'
 import { ArticleService } from '#src/services/article.service'
 
@@ -10,12 +8,6 @@ export class ApiArticleController {
     const articles = await articleService.findAll(
       parseInt(request.query('page', 0))
     )
-
-    articles.data = articles.data.map(article => {
-      article.created_at = dateFns.format(article.created_at, 'PP')
-
-      return article
-    })
 
     return response.status(200).send(articles)
   }

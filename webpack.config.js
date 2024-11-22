@@ -64,6 +64,20 @@ Encore.copyFiles({
 
 /*
 |--------------------------------------------------------------------------
+| Configure file names
+|--------------------------------------------------------------------------
+|
+| Configure the file names for specific extensions. In this case we are
+| removing the content hash from js and css files.
+|
+*/
+Encore.configureFilenames({
+  js: '[name].js',
+  css: '[name].css'
+})
+
+/*
+|--------------------------------------------------------------------------
 | Split shared code
 |--------------------------------------------------------------------------
 |

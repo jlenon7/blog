@@ -21,12 +21,22 @@
 </body>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YKMB291FL"></script>
 <script>
+  const MEASUREMENT_ID = 'G-0YKMB291FL'
+
   window.dataLayer = window.dataLayer || []
+
   function gtag() {
     dataLayer.push(arguments)
   }
+
   gtag('js', new Date())
-  gtag('config', 'G-0YKMB291FL')
+  gtag('config', MEASUREMENT_ID)
+
+  window.addEventListener('popstate', () => {
+    const path = window.location.pathname
+
+    gtag('config', MEASUREMENT_ID, { page_path: path })
+  })
 </script>
 </html>
 

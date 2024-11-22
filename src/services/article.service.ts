@@ -6,11 +6,11 @@ import { Article } from '#src/models/article'
 
 @Service()
 export class ArticleService {
-  public async findAll(page = 0) {
+  public async findAll(page: string = '0') {
     const articles = await Article.query()
       .select('id', 'title', 'description', 'created_at', 'deleted_at')
       .orderBy('created_at', 'desc')
-      .paginate(page, 5)
+      .paginate(parseInt(page), 5)
 
     articles.data = articles.data.map(article => {
       article.created_at = dateFns.format(article.created_at, 'PP')

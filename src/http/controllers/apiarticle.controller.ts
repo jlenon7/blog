@@ -5,9 +5,7 @@ import { ArticleService } from '#src/services/article.service'
 export class ApiArticleController {
   public async index({ request, response }: Context) {
     const articleService = new ArticleService()
-    const articles = await articleService.findAll(
-      parseInt(request.query('page', 0))
-    )
+    const articles = await articleService.findAll(request.query('page', 0))
 
     return response.status(200).send(articles)
   }

@@ -3,8 +3,11 @@ import { ArticleService } from '#src/services/article.service'
 
 @Controller()
 export class ArticleController {
-  public async index({ response }: Context) {
-    return response.view('pages/articles')
+  public async index({ request, response }: Context) {
+    const articleService = new ArticleService()
+    const articles = await articleService.findAll(request.query('page', 0))
+
+    return response.view('pages/articles', { articles })
   }
 
   public async show({ request, response }: Context) {

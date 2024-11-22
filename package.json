@@ -42,6 +42,7 @@
     "@fastify/swagger-ui": "^3.1.0",
     "alpinejs": "^3.14.3",
     "date-fns": "^4.1.0",
+    "feather-icons": "^4.29.2",
     "mongoose": "^8.8.1",
     "reflect-metadata": "^0.2.2",
     "source-map-support": "^0.5.21",

@@ -45,7 +45,7 @@ Encore.setPublicPath('/')
 | entrypoints.
 |
 */
-Encore.addEntry('app', './src/resources/js/app.ts')
+Encore.addEntry('app', './src/resources/js/app.js')
 
 /*
 |--------------------------------------------------------------------------
@@ -120,16 +120,6 @@ Encore.cleanupOutputBeforeBuild()
 |
 */
 Encore.enableSourceMaps(!Encore.isProduction())
-
-/*
-|--------------------------------------------------------------------------
-| TypeScript
-|--------------------------------------------------------------------------
-|
-| Enable TypeScript loader to be able to define `.ts` files in resources.
-|
-*/
-Encore.enableTypeScriptLoader()
 
 /*
 |--------------------------------------------------------------------------

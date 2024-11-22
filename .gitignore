@@ -143,6 +143,7 @@ build
 
 # Don't ignore configuration files
 !public/**/*.js
+!src/resources/**/*.js
 !postcss.config.js
 !webpack.config.js
 !tailwind.config.js

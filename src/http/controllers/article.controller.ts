@@ -7,7 +7,7 @@ export class ArticleController {
     const articleService = new ArticleService()
     const articles = await articleService.findAll(request.query('page', 0))
 
-    return response.view('pages/articles', { articles })
+    return response.view('pages/articles/index', { articles })
   }
 
   public async show({ request, response }: Context) {

@@ -3,8 +3,8 @@
     <img class="w-28 mt-20 mb-4 rounded-full" src="/public/img/logos/me.png" alt="me" />
   </a>
   <button
-    x-init="updateIcon(darkMode)"
-    @click="darkMode = !darkMode; updateIcon(darkMode)"
+    x-data="darkModeComponent(darkMode)"
+    @click="darkMode = !darkMode; init(darkMode)"
     class="absolute top-4 right-4 p-2 flex items-center justify-center"
   >
     <i x-ref="dark-mode-icon"></i>
@@ -34,11 +34,3 @@
     <p class="text-base text-justify mt-6">{{ description }}</p>
   @end
 </header>
-
-<script>
-  function updateIcon(isDarkMode) {
-    const icon = isDarkMode ? 'moon' : 'sun';
-
-    document.querySelector('[x-ref="dark-mode-icon"]').innerHTML = feather.icons[icon].toSvg();
-  }
-</script>

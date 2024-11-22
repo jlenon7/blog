@@ -12,14 +12,12 @@
   <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
   <link rel="stylesheet" href="/public/app.css">
   <script defer src="/public/app.js"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
   @if ($slots.meta)
     {{{ await $slots.meta() }}}
   @endif
 </head>
 <body>
   {{{ await $slots.main() }}}
-  <script>feather.replace()</script>
 </body>
 </html>
 

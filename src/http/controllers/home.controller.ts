@@ -6,6 +6,6 @@ export class HomeController {
   public async index({ response }: Context) {
     const homeService = new HomeService()
 
-    return response.view('home', await homeService.index())
+    return response.view('pages/home', await homeService.index())
   }
 }

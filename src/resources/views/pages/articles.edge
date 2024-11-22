@@ -1,0 +1,69 @@
+@layout.app({ title: 'Articles | Lenon blog'})
+  @slot('main')
+    <main class="section mx-auto max-w-3xl">
+      @!layout.header()
+      <div x-data="articlesComponent()">
+        <template x-for="article in articles.data" :key="article.id">
+          <a :href="`/articles/${article.id}`" class="block">
+            <strong class="block text-2xl transition-colors text-[color:--heading] hover:text-[color:--highlight]">
+              <span x-text="article.title"></span>
+              <span class="inline-block align-middle">
+                <i class="relative bottom-[1px]" data-feather="chevron-right"></i>
+              </span>
+            </strong>
+            <p class="text-[color:--body] mt-2 mb-6 leading-6" x-text="article.description"></p>
+            <div class="mb-4 flex text-sm items-center text-[color:--info]">
+              <span class="mr-2">
+                <i data-feather="calendar"></i>
+              </span>
+              <time class="mr-4" x-text="article.created_at"></time>
+            </div>
+          </a>
+        </template>
+
+        <button
+          x-show="articles.meta.currentPage + 1 < articles.meta.totalPages"
+          @click="loadMoreArticles"
+          class="text-[color:--highlight] font-semibold text-[1.2rem] !mt-12 !mb-10 transition-transform duration-200 hover:-translate-y-1"
+        >
+          Next Page
+        </button>
+      </div>
+      @!layout.footer()
+    </main>
+  @endslot
+@end
+
+<script>
+  function articlesComponent() {
+    let articles = { data: [], meta: { totalPages: 1, currentPage: 1 } }
+
+    return {
+      articles,
+      async fetchArticles(page = 1) {
+        try {
+          const response = await fetch(`/api/v1/articles?page=${page}`)
+          const data = await response.json()
+
+          this.articles.data = data.data
+          this.articles.meta = data.meta
+
+          feather.replace()
+        } catch(err) {
+          console.error("Failed to fetch articles", err)
+        }
+      },
+      async loadMoreArticles() {
+        if (this.articles.meta.currentPage + 1 <= this.articles.meta.totalPages) {
+          this.articles.meta.currentPage += 1
+          await this.fetchArticles(this.articles.meta.currentPage)
+          feather.replace()
+        }
+      },
+      async init() {
+        await this.fetchArticles()
+        feather.replace()
+      }
+    }
+  }
+</script>

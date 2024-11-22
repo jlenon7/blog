@@ -6,7 +6,7 @@ export class Handler extends HttpExceptionHandler {
       ctx.error.code === 'E_NOT_FOUND_ERROR' ||
       ctx.error.code === 'E_NOT_FOUND_DATA_ERROR'
     ) {
-      await ctx.response.view('not-found')
+      await ctx.response.view('pages/not-found')
 
       return
     }

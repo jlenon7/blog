@@ -5,9 +5,11 @@ Route.get('/articles', 'ArticleController.index')
 Route.get('/articles/:id', 'ArticleController.show')
 
 Route.group(() => {
-  Route.post('/articles', 'ArticleController.store')
-  Route.put('/articles/:id', 'ArticleController.update')
-  Route.delete('/articles/:id', 'ArticleController.delete')
-})
-  .prefix('/api/v1')
-  .middleware('auth')
+  Route.get('/articles', 'ApiArticleController.index')
+
+  Route.group(() => {
+    Route.post('/articles', 'ApiArticleController.store')
+    Route.put('/articles/:id', 'ApiArticleController.update')
+    Route.delete('/articles/:id', 'ApiArticleController.delete')
+  }).middleware('auth')
+}).prefix('/api/v1')

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html
+  lang="en"
+  x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
+  x-bind:class="{ 'dark': darkMode }"
+>
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/public/css/main.css">
-  <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
   <title>{{ title || "lenonsec.com" }}</title>
-  <script src="/public/js/main.js"></script>
-  <script src="https://unpkg.com/htmx.org"></script>
+  <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
+  <link rel="stylesheet" href="/public/app.css">
+  <script defer src="/public/app.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
   @if ($slots.meta)
     {{{ await $slots.meta() }}}
@@ -15,52 +19,7 @@
 </head>
 <body>
   {{{ await $slots.main() }}}
-  <script>
-    feather.replace()
-
-    document.addEventListener('htmx:beforeSwap', event => {
-      // Remove former load button from article-list.
-      if (event.target && event.target.id === 'article-list') {
-        const buttons = document.querySelectorAll('#article-list button')
-
-        buttons.forEach(button => button.remove())
-      }
-    })
-
-    document.addEventListener('htmx:afterSwap', event => {
-      // Replace feather icons after HTMX swap.
-      feather.replace()
-    })
-
-    const themeToggle = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-
-    if (localStorage.getItem('theme') === 'dark') {
-      htmlElement.classList.add('dark');
-      themeToggle.innerHTML = '<i data-feather="moon"></i>';
-    } else {
-      htmlElement.classList.remove('dark');
-      themeToggle.innerHTML = '<i data-feather="sun"></i>';
-    }
-
-    feather.replace();
-
-    themeToggle.addEventListener('click', () => {
-      if (htmlElement.classList.contains('dark')) {
-        htmlElement.classList.remove('dark');
-        localStorage.setItem('theme', 'light');
-
-        themeToggle.innerHTML = '<i data-feather="sun"></i>';
-      } else {
-        htmlElement.classList.add('dark');
-        localStorage.setItem('theme', 'dark');
-
-        themeToggle.innerHTML = '<i data-feather="moon"></i>';
-      }
-
-      feather.replace();
-    });
-  </script>
+  <script>feather.replace()</script>
 </body>
 </html>
 

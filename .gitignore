@@ -142,5 +142,7 @@ build
 .DS_Store
 
 # Don't ignore configuration files
+!public/**/*.js
 !postcss.config.js
+!webpack.config.js
 !tailwind.config.js

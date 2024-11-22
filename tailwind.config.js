@@ -1,14 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: 'class',
-  content: ['./src/resources/views/**/*.edge'],
+  content: ['./src/resources/**/*.{edge,js,ts.jsx.tsx,vue}'],
   theme: {
     extend: {}
   },
-  safelist: [
-    {
-      pattern: /./
-    }
-  ],
+  // safelist: [
+  //   {
+  //     pattern: /./
+  //   }
+  // ],
   plugins: []
 }

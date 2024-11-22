@@ -12,7 +12,8 @@
   ],
   "controllers": [
     "#src/http/controllers/home.controller",
-    "#src/http/controllers/article.controller"
+    "#src/http/controllers/article.controller",
+    "#src/http/controllers/apiarticle.controller"
   ],
   "commands": {
     "configure": "@athenna/artisan/commands/ConfigureCommand",

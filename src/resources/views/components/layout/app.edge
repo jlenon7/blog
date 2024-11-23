@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
   lang="en"
-  x-data="{ darkMode: localStorage.getItem('dark') === 'true'} "
+  x-data="{ darkMode: localStorage.getItem('dark') === 'true' }"
   x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
   x-bind:class="{ 'dark': darkMode }"
 >
@@ -22,8 +22,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title || "lenonsec.com" }}</title>
   <link rel="icon" type="image/x-icon" href="/public/img/favicon.ico">
-  <link rel="stylesheet" href="/public/app.css">
-  <script defer src="/public/app.js"></script>
+  <link rel="stylesheet" href="/public/assets/app.css">
+  <script defer type="module" src="/public/assets/app.js"></script>
   @if ($slots.meta)
     {{{ await $slots.meta() }}}
   @endif

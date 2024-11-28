@@ -2,7 +2,7 @@
   @slot('main')
     <main class="section mx-auto max-w-3xl">
       @!layout.header()
-      <div x-data="articlesComponent('{{ JSON.stringify(articles) }}')">
+      <div x-data="articlesComponent(`{{ JSON.stringify(articles) }}`)">
         <template x-for="article in articles.data" :key="article.id">
           <a :href="`/articles/${article.id}`" class="block">
             <strong class="block text-2xl transition-colors text-[color:--heading] hover:text-[color:--highlight]">

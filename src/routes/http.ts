@@ -6,6 +6,7 @@ Route.get('/articles/:id', 'ArticleController.show')
 
 Route.group(() => {
   Route.get('/articles', 'ApiArticleController.index')
+  Route.get('/articles/:id', 'ApiArticleController.show')
 
   Route.group(() => {
     Route.post('/articles', 'ApiArticleController.store')

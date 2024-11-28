@@ -1,0 +1,73 @@
+<h1>What is RAG?</h1>
+<p class="mt-4 text-justify">
+  One of the limitations from Large Language Models (LLM) nowadays is their limited time
+  windows of "knowledge", in other words, pure and simple <strong>data</strong>.
+  <a target="_blank" class="text-[color:--highlight]" href="https://platform.openai.com/docs/models/gpt-3-5-turbo#gpt-3-5-turbo">The GPT 3.5 Turbo</a>
+  training data go up to <strong>Set 2021</strong>, which means that the model doesn't
+  know about any important event that comes after that date.
+</p>
+<p class="mt-4 text-justify">
+  And that's what Retrieval-Augmented Generation (RAG) technique tries to solve, it
+  provides new sources to get a better output from a Large Language Model (LLM). It
+  references an authoritative knowledge base outside of its common training data sources
+  before generating a response.
+</p>
+<p class="mt-4 text-justify">
+  Imagine that your company got a very big documentation about infrastructure, architecture,
+  processes, etc. With RAG, it's possible to "vectorize" all of that data and use
+  text embedding techniques to send the right context to the LLM so he could craft the best
+  response possible.
+</p>
+<h1 class="mt-4">RAG for Athenna Docs</h1>
+<p class="mt-4 text-justify">
+  Since <a target="_blank" class="text-[color:--highlight]" href="https://athenna.io">Athenna</a>
+  has a big documentation, a LLM could be a very good second brain to answer questions quickly
+  that the developer might have. The goal was to clone the Athenna documentation repository and create
+  data chunks from all <code>.mdx</code> files and insert inside a VectorDB. So when the user
+  asks something, we first use a text embedding model to search the most relevant chunks inside our
+  vectors to check which one is most probably to contain the right context that the LLM needs to
+  answer the question correctly. I created this project using the following tools:
+</p>
+<ul class="mt-4">
+  <li><a target="_blank" class="text-[color:--highlight]" href="https://python.langchain.com/docs/introduction/">LangChain for data processing and chunking</a></li>
+  <li><a target="_blank" class="text-[color:--highlight]" href="https://www.trychroma.com/">Chroma as VectorDB</a></li>
+  <li><a target="_blank" class="text-[color:--highlight]" href="https://platform.openai.com/docs/models#gpt-3-5-turbo">GPT 3.5 Turbo as LLM</a></li>
+  <li><a target="_blank" class="text-[color:--highlight]" href="https://platform.openai.com/docs/models#embeddings">ADA 002 for Text Embedding</a></li>
+</ul>
+<p class="mt-4 text-justify"></p>
+  You can check all the sources in my <strong>Github repository</strong>: <a target="_blank" class="text-[color:--highlight]" href="https://github.com/jlenon7/rag_athenna">jlenon7/rag_athenna</a>
+</p>
+<h1 class="mt-4">Prompt Examples</h1>
+<p class="mt-4 text-justify">
+  The results are amazing 🤩
+</p>
+<h4 class="mt-4">Question</h4>
+<p class="mt-4 text-justify"></p>
+  How I could change the routes directory in Athenna Framework?
+</p>
+<h4 class="mt-4">LLM Answer</h4>
+<p class="mt-4 text-justify">
+  To change the routes directory in Athenna Framework, you can update the <code>.athennarc.json</code>
+  configuration file by modifying the <code>directories</code> property. By default, the routes directory
+  is located at <code>"routes": "src/routes"</code>.
+</p>
+<p class="mt-4 text-justify">
+  If you want to change the routes directory to a different location, you can simply
+  update the <code>"routes"</code> key within the <code>directories</code> property to
+  point to the new directory path. For example, if you want to change the routes directory
+  to <code>"app/routes"</code>, you can update the configuration as follows:
+</p>
+<pre class="code-block">
+<code class="my-4 code-block-lines">{
+  "directories": {
+    "routes": "app/routes"
+  }
+}</code>
+</pre>
+<h1>Next Steps</h1>
+<p class="mt-4 text-justify">
+  Now imagine to have this tool working inside <a target="_blank" class="text-[color:--highlight]" href="https://athenna.io">Athenna Documentation?</a>
+  This would be amazing, BUT, LLM's are very expensive even if we use the <a target="_blank" class="text-[color:--highlight]" href="https://ai.meta.com/blog/meta-llama-3/">Llama 3 from Meta</a>,
+  the costs to run the model in some cloud is still a thing. So let's wait until we have some free tool to use or at least
+  free for open source 😅.
+</p>

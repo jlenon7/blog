@@ -5,6 +5,6 @@ export default {
   theme: {
     extend: {}
   },
-  safelist: ['mt-4'],
+  safelist: ['mt-4', 'my-4'],
   plugins: []
 }

@@ -1,6 +1,7 @@
 import feather from 'feather-icons'
 
 export function articlesComponent(articles) {
+  console.log(articles)
   articles = JSON.parse(articles)
 
   return {

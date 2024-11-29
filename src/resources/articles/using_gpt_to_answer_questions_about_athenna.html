@@ -37,9 +37,15 @@
 <p class="mt-4 text-justify"></p>
   You can check all the sources in my <strong>Github repository</strong>: <a target="_blank" class="text-[color:--highlight]" href="https://github.com/jlenon7/rag_athenna">jlenon7/rag_athenna</a>
 </p>
-<h1 class="mt-4">Prompt Examples</h1>
+<h2 class="mt-4">Base RAG</h2>
 <p class="mt-4 text-justify">
-  The results are amazing 🤩
+  The base RAG architecture is the most basic way of implementing this technique:
+</p>
+<img class="mt-4 block mx-auto w-1/2" src="public/img/charts/base-rag.png" />
+<p class="mt-4 text-justify">
+  This architecture is also know as naive RAG, but I don't like this name in particular because depending on
+  the use case, the base RAG architecture could already solve the problem. Let's see a response example from
+  the LLM by using this architecture:
 </p>
 <h4 class="mt-4">Question</h4>
 <p class="mt-4 text-justify"></p>
@@ -64,9 +70,57 @@
   }
 }</code>
 </pre>
-<h1>Next Steps</h1>
+<h2>Parent RAG</h2>
 <p class="mt-4 text-justify">
-  Now imagine to have this tool working inside <a target="_blank" class="text-[color:--highlight]" href="https://athenna.io">Athenna Documentation?</a>
+  The problem with base RAG architecture is that it could lead to imprecisions due to a larger context.
+  If we have larger chunks, lower will be the precision of the LLM and if we have smaller chunks,
+  the LLM will have a higher precision, but also less context to craft the response:
+</p>
+<img class="mt-4 block mx-auto w-1/2" src="public/img/charts/precision-vs-context.png" />
+<p class="mt-4 text-justify">
+  To fix this we can use a parent RAG architecture, were we will create larger parent chunks and split
+  them in smaller chunks and finally apply the embedding techniques and save in the VectorDB:
+</p>
+<img class="mt-4 block mx-auto w-1/2" src="public/img/charts/parent-document-retriever.png" />
+<p class="mt-4 text-justify">
+  The results are incredible better when compared to the base RAG architecture, the LLM is able to
+  provide even more details about how to change the <code>routes</code> directory:
+</p>
+<h4 class="mt-4">Question</h4>
+<p class="mt-4 text-justify"></p>
+  How I could change the routes directory in Athenna Framework?
+</p>
+<h4 class="mt-4">LLM Answer</h4>
+<p class="mt-4 text-justify">
+  To change the routes directory in Athenna Framework, you can follow these steps:
+</p>
+<ul class="mt-4">
+  <li>Open the <code>.athennarc.json</code> file or the <code>athenna</code> property of your <code>package.json</code>.</li>
+  <li>Look for the <code>directories</code> property inside the configuration.</li>
+  <li>Add a key-value pair to map the directory base path that you want to use for resolving the routes directory.</li>
+</ul>
+<p class="mt-4 text-justify">
+  For example, if you want to change the routes directory to <code>src/app/routes</code>, you can add the
+  following configuration to your <code>.athennarc.json</code> file:
+</p>
+<pre class="code-block">
+<code class="my-4 code-block-lines">{
+  "directories": {
+    "routes": "src/app/routes"
+  }
+}</code>
+</pre>
+<p class="text-justify">
+  By doing this, when Athenna resolves the routes directory, it will use the path <code>src/app/routes</code> instead
+  of the default path.
+</p>
+<p class="mt-4 text-justify">
+  Remember, Athenna relies on the <code>Path</code> class methods to find files and directories internally, so configuring
+  the <code>directories</code> property will help Athenna locate the specified routes directory.
+</p>
+<h1 class="mt-4">Next Steps</h1>
+<p class="mt-4 text-justify">
+  Now imagine to have this tool working inside <a target="_blank" class="text-[color:--highlight]" href="https://athenna.io">Athenna Documentation.</a>
   This would be amazing, BUT, LLM's are very expensive even if we use the <a target="_blank" class="text-[color:--highlight]" href="https://ai.meta.com/blog/meta-llama-3/">Llama 3 from Meta</a>,
   the costs to run the model in some cloud is still a thing. So let's wait until we have some free tool to use or at least
   free for open source 😅.

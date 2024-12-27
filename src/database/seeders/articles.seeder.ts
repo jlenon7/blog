@@ -7,35 +7,40 @@ export class ArticlesSeeder extends BaseSeeder {
   public async run() {
     const articles = [
       {
-        title: 'Heroku alternatives for Free API deployment',
+        title: 'Heroku alternatives for free API deployment',
         description:
           'Needs to deploy an API just to test something quick but now Heroku is paid only? Check out Render.com'
       },
       {
         title: 'Using GPT with RAG to answer questions about Athenna',
         description:
-          'Showing off how we can use Retrieval-Augmented Generation (RAG) techniques to provide more knowledge to a LLM so he could provide better responses.'
+          'Showing off how we can use Retrieval-Augmented Generation (RAG) techniques to provide more knowledge to an LLM for better responses.'
       }
     ]
 
-    const promises = articles.map(article => {
-      const content = new File(
-        this.getArticlePath(article.title)
-      ).getContentAsStringSync()
+    for (const article of articles) {
+      const articlePath = this.getArticlePath(article.title)
+      const content = new File(articlePath).getContentAsStringSync()
 
-      return Article.createOrUpdate(
-        { title: article.title },
-        {
-          id: ulid(),
-          title: article.title,
-          description: article.description,
-          content,
-          read_time: `${Math.ceil(content.split(' ').length / 200)} min`
-        }
-      )
-    })
+      const articleToUpdate = await Article.query()
+        .where('title', article.title)
+        .find()
 
-    await Promise.all(promises)
+      const data = {
+        title: article.title,
+        description: article.description,
+        content,
+        read_time: `${Math.ceil(content.split(' ').length / 200)} min`
+      }
+
+      if (articleToUpdate) {
+        await Article.update({ id: articleToUpdate.id }, data)
+
+        continue
+      }
+
+      await Article.create({ id: ulid(), ...data })
+    }
   }
 
   public getArticlePath(title: string) {

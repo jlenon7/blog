@@ -5,9 +5,10 @@ import { Experience } from '#src/models/experience'
 
 export class ExperienceSeeder extends BaseSeeder {
   public async run() {
-    const images = await new File(
-      Path.resources('img/logos.json')
-    ).getContentAsJson()
+    const logosPath = Path.resources('logos.json')
+    const images = await new File(logosPath).getContentAsJson()
+
+    await Experience.truncate()
 
     await Experience.create({
       id: ulid(),

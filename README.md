@@ -10,22 +10,16 @@ Install dependencies and set up the environment variables (don't forget to defin
 npm install && cp .env.example .env
 ```
 
-Run seeders to get my experience and articles defined in your database, might need to change the content of those files for your case:
+Run seeders to get my experience and articles defined in your database, might need to change the content seeder files (`src/database/seeders`) for your case:
 
 ```shell
 node artisan db:seed
 ```
 
-Run Vite in watch mode for js/css compilation:
+Run the HTTP server and turn on Vite compilation:
 
 ```shell
-vite build --watch
-```
-
-Run the HTTP server in watch mode:
-
-```shell
-node artisan serve --watch
+node artisan serve --vite --watch
 ```
 
 Voilà! Open http://localhost:3000 to see the blog

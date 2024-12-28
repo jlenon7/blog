@@ -41,7 +41,9 @@
       "include": [
         "package.json",
         "package-lock.json",
-        ".athennarc.json"
+        ".athennarc.json",
+        "public/**/*",
+        "src/resources/**/*"
       ]
     },
     "test": {

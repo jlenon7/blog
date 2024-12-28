@@ -10,7 +10,7 @@ Install dependencies and set up the environment variables (don't forget to defin
 npm install && cp .env.example .env
 ```
 
-Run seeders to get my experience and articles defined in your database, might need to change the content seeder files (`src/database/seeders`) for your case:
+Run seeders to get my experience and articles defined in your database, might need to change the content of seeder files (`src/database/seeders`) for your case:
 
 ```shell
 node artisan db:seed

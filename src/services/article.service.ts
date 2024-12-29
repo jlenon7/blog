@@ -1,6 +1,6 @@
 import * as dateFns from 'date-fns'
 
-import { ulid } from 'ulid'
+import { Ulid } from '@athenna/common'
 import { Service } from '@athenna/ioc'
 import { Article } from '#src/models/article'
 
@@ -27,7 +27,7 @@ export class ArticleService {
 
   public async create(data: Partial<Article>) {
     return Article.create({
-      id: ulid(),
+      id: Ulid.generate(),
       title: data.title,
       content: data.content,
       description: data.description,

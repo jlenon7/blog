@@ -1,7 +1,6 @@
-import { ulid } from 'ulid'
 import { Article } from '#src/models/article'
 import { BaseSeeder } from '@athenna/database'
-import { Path, File, String } from '@athenna/common'
+import { Path, Ulid, File, String } from '@athenna/common'
 
 export class ArticlesSeeder extends BaseSeeder {
   public async run() {
@@ -39,7 +38,7 @@ export class ArticlesSeeder extends BaseSeeder {
         continue
       }
 
-      await Article.create({ id: ulid(), ...data })
+      await Article.create({ id: Ulid.generate(), ...data })
     }
   }
 

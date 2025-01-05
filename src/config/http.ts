@@ -108,7 +108,7 @@ export default {
   */
 
   helmet: {
-    enabled: false,
+    enabled: true,
     global: true
   },
 

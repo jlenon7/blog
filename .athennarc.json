@@ -45,7 +45,7 @@
         "public/**/*",
         "storage/**/*",
         "public/**/.vite/*",
-        "src/resources/**/*"
+        "src/resources/**/*.{html,edge}"
       ]
     },
     "test": {

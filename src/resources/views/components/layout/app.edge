@@ -22,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title || "lenonsec.com" }}</title>
   <link rel="icon" type="image/x-icon" href="{{ asset("src/resources/img/favicon.ico") }}">
-  @vite(['src/resources/js/app.js'])
+  @vite(['src/resources/js/app.ts'])
   @if ($slots.meta)
     {{{ await $slots.meta() }}}
   @endif

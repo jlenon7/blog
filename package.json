@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node artisan serve",
-    "start:dev": "node artisan serve --vite --watch",
+    "start:dev": "node artisan serve --watch",
     "build": "node artisan build --vite",
     "test": "npm run --silent lint:fix && node artisan test",
     "test:debug": "npm run --silent lint:fix && cross-env NODE_DEBUG=athenna:* node --inspect artisan test",

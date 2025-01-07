@@ -7,13 +7,39 @@ export class ArticleController {
     const articleService = new ArticleService()
     const articles = await articleService.findAll(request.query('page', 0))
 
-    return response.view('pages/articles/index', { articles })
+    return response.status(200).send(articles)
   }
 
   public async show({ request, response }: Context) {
     const articleService = new ArticleService()
     const article = await articleService.findById(request.param('id'))
 
-    return response.view('pages/article', { article })
+    return response.status(200).send(article)
+  }
+
+  public async store({ request, response }: Context) {
+    const articleService = new ArticleService()
+    const article = await articleService.create(
+      request.only(['title', 'description', 'content'])
+    )
+
+    return response.status(201).send(article)
+  }
+
+  public async update({ request, response }: Context) {
+    const articleService = new ArticleService()
+    const article = await articleService.update(
+      request.param('id'),
+      request.only(['title', 'description', 'content'])
+    )
+
+    return response.status(200).send(article)
+  }
+
+  public async delete({ request, response }: Context) {
+    const articleService = new ArticleService()
+    await articleService.delete(request.param('id'))
+
+    return response.status(204).send()
   }
 }

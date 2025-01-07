@@ -41,7 +41,7 @@
 <p class="mt-4 text-justify">
   The base RAG architecture is the most basic way of implementing this technique:
 </p>
-<img class="mt-4 block mx-auto w-1/2" src="/public/img/charts/base-rag.png" />
+<img class="mt-4 block mx-auto w-1/2" src="/public/assets/img/charts/base-rag.png" />
 <p class="mt-4 text-justify">
   This architecture is also know as naive RAG, but I don't like this name in particular because depending on
   the use case, the base RAG architecture could already solve the problem. Let's see a response example from
@@ -76,12 +76,12 @@
   If we have larger chunks, lower will be the precision of the LLM and if we have smaller chunks,
   the LLM will have a higher precision, but also less context to craft the response:
 </p>
-<img class="mt-4 block mx-auto w-1/2" src="/public/img/charts/precision-vs-context.png" />
+<img class="mt-4 block mx-auto w-1/2" src="/public/assets/img/charts/precision-vs-context.png" />
 <p class="mt-4 text-justify">
   To fix this we can use a parent RAG architecture, were we will create larger parent chunks and split
   them in smaller chunks and finally apply the embedding techniques and save in the VectorDB:
 </p>
-<img class="mt-4 block mx-auto w-1/2" src="/public/img/charts/parent-document-retriever.png" />
+<img class="mt-4 block mx-auto w-1/2" src="/public/assets/img/charts/parent-document-retriever.png" />
 <p class="mt-4 text-justify">
   The results are incredible better when compared to the base RAG architecture, the LLM is able to
   provide even more details about how to change the <code>routes</code> directory:

@@ -1,6 +1,6 @@
 {
   "services": [
-    "#src/services/home.service",
+    "#src/services/experience.service",
     "#src/services/article.service"
   ],
   "providers": [
@@ -11,9 +11,9 @@
     "@athenna/database/providers/DatabaseProvider"
   ],
   "controllers": [
-    "#src/http/controllers/home.controller",
+    "#src/http/controllers/experience.controller",
     "#src/http/controllers/article.controller",
-    "#src/http/controllers/apiarticle.controller"
+    "#src/http/controllers/app.controller"
   ],
   "commands": {
     "configure": "@athenna/artisan/commands/ConfigureCommand",
@@ -135,6 +135,7 @@
     "#src/models/experience"
   ],
   "middlewares": [
-    "#src/http/middlewares/auth.middleware"
+    "#src/http/middlewares/auth.middleware",
+    "#src/http/interceptors/response.interceptor"
   ]
 }

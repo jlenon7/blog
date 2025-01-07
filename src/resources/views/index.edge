@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  x-data="{ darkMode: localStorage.getItem('dark') === 'true' }"
-  x-init="$watch('darkMode', val => localStorage.setItem('dark', val))"
-  x-bind:class="{ 'dark': darkMode }"
->
+<html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YKMB291FL"></script>
   <script>
@@ -21,14 +16,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title || "lenonsec.com" }}</title>
-  <link rel="icon" type="image/x-icon" href="{{ asset("src/resources/img/favicon.ico") }}">
-  @vite(['src/resources/js/app.ts'])
-  @if ($slots.meta)
-    {{{ await $slots.meta() }}}
-  @endif
+  <link rel="icon" type="image/x-icon" href="{{ asset("src/resources/app/img/favicon.ico") }}">
+  @viteReactRefresh()
+  @vite(['src/resources/app/app.tsx'])
 </head>
 <body>
-  {{{ await $slots.main() }}}
+  <div id="root"></div>
 </body>
 </html>
-

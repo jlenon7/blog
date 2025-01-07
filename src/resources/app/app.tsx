@@ -8,7 +8,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { HomePage } from '#app/pages/home'
 import { ArticlePage } from '#app/pages/article'
 import { ArticlesPage } from '#app/pages/articles'
-import { NotFoundPage } from './pages/not-found'
+import { NotFoundPage } from '#app/pages/not-found'
+
+/**
+ * Tell vite the existence of any other assets that
+ * you want to be available in your static server.
+ */
+import.meta.glob(['./img/**'])
 
 function App() {
   const queryClient = new QueryClient()

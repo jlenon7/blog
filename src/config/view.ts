@@ -1,5 +1,3 @@
-import * as dateFns from 'date-fns'
-
 import { Path } from '@athenna/common'
 import { Env, Config } from '@athenna/config'
 
@@ -65,8 +63,7 @@ export default {
 
   properties: {
     env: Env,
-    config: Config,
-    dateFns
+    config: Config
   },
 
   /*

@@ -218,7 +218,7 @@ export default {
   | https://athenna.io/docs/the-basics/vite
   |
   */
-  vite: {
+  vite:{
     enabled: true,
     root: Path.pwd(),
     dev: Config.isNot('app.environment', 'production'),

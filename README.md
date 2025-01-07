@@ -16,10 +16,10 @@ Run seeders to get my experience and articles defined in your database, might ne
 node artisan db:seed
 ```
 
-Run the HTTP server and turn on Vite compilation:
+Run the HTTP server:
 
 ```shell
-node artisan serve --vite --watch
+node artisan serve --watch
 ```
 
 Voilà! Open http://localhost:3000 to see the blog

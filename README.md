@@ -1,6 +1,6 @@
 # Blog 🖼️
 
-> My blog implementation using Athenna Framework and AlpineJS.
+> My blog implementation using Athenna Framework and React.
 
 ## Running
 

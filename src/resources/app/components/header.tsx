@@ -1,4 +1,4 @@
-import meLogo from '#app/img/logos/me.png'
+import meLogo from '#app/assets/img/logos/me.png'
 
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router'

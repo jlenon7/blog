@@ -52,8 +52,6 @@ export function useGetExperiences() {
       const response = await fetch(route)
       const data = await response.json()
 
-      console.log(data)
-
       if (data.statusCode !== 200) {
         throw data
       }

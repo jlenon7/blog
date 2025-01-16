@@ -52,6 +52,7 @@
       "path": "@athenna/core/commands/BuildCommand",
       "outDir": "build",
       "tsconfig": "node_modules/@athenna/tsconfig/tsconfig.app-build.json",
+      "loadApp": true,
       "include": [
         "package.json",
         "package-lock.json",

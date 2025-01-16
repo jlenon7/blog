@@ -19,7 +19,7 @@ export default defineConfig({
        * Entrypoints of your application. Each entrypoint will
        * result in a separate bundle.
        */
-      entrypoints: ['src/resources/app/app.tsx'],
+      entrypoints: ['src/resources/app/root.tsx'],
 
       /**
        * Paths to watch and reload the browser on file change.

@@ -1,8 +1,7 @@
 import '#app/app.scss'
 
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { Route, Routes, BrowserRouter } from 'react-router'
+import { BrowserRouter, Route, Routes, StaticRouter } from 'react-router'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { HomePage } from '#app/pages/home'
@@ -14,25 +13,35 @@ import { NotFoundPage } from '#app/pages/not-found'
  * Tell vite the existence of any other assets that
  * you want to be available in your static server.
  */
-import.meta.glob(['./img/**'])
+import.meta.glob(['./assets/img/**'])
 
-function App() {
+export function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/articles" element={<ArticlesPage />} />
+      <Route path="/articles/:id" element={<ArticlePage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  )
+}
+
+export function App(props?: { url?: string }) {
   const queryClient = new QueryClient()
+  const isServer = typeof window === 'undefined'
+  const Router = isServer ? StaticRouter : BrowserRouter
 
   return (
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/articles" element={<ArticlesPage />} />
-            <Route path="/articles/:id" element={<ArticlePage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </BrowserRouter>
+        <Router location={props.url || window.location.pathname}>
+          <AppRoutes />
+        </Router>
       </QueryClientProvider>
     </StrictMode>
   )
 }
 
-createRoot(document.getElementById('root')).render(<App />)
+export function createApp(url?: string) {
+  return <App url={url} />
+}

@@ -59,17 +59,8 @@ export class ExperienceSeeder extends BaseSeeder {
       role: 'Back-end Developer and DevOps',
       company: 'BraPay',
       base64_company_logo: images.BraPay,
-      start_date: Experience.getDate(12, 2019),
-      end_date: Experience.getDate(3, 2021)
-    })
-
-    await Experience.create({
-      id: Ulid.generate(),
-      role: 'Freelance Software Engineer',
-      company: 'Netliv',
-      base64_company_logo: images.Netliv,
       start_date: Experience.getDate(5, 2018),
-      end_date: Experience.getDate(12, 2019)
+      end_date: Experience.getDate(3, 2021)
     })
   }
 }

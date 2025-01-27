@@ -41,6 +41,7 @@
     "@fastify/static": "^8.0.4",
     "@fastify/swagger": "^9.4.2",
     "@fastify/swagger-ui": "^5.2.1",
+    "@infisical/sdk": "^3.0.5",
     "@tanstack/react-query": "^5.64.2",
     "date-fns": "^4.1.0",
     "mongoose": "^8.9.5",

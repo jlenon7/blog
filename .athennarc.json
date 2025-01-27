@@ -8,7 +8,8 @@
     "@athenna/view/providers/ViewProvider",
     "@athenna/http/providers/HttpRouteProvider",
     "@athenna/http/providers/HttpServerProvider",
-    "@athenna/database/providers/DatabaseProvider"
+    "@athenna/database/providers/DatabaseProvider",
+    "#src/providers/secrets.provider"
   ],
   "controllers": [
     "#src/http/controllers/experience.controller",

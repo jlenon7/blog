@@ -49,6 +49,7 @@ export default {
 
   logger: {
     enabled: Env('LOG_HTTP', true),
+    prettifyException: Env('LOG_PRETTY', true),
     ignoreCodes: [],
     ignoreStatuses: []
   },
@@ -229,7 +230,7 @@ export default {
       defer: true
     },
 
-    ssrEntrypoint: 'src/resources/app/app.tsx',
+    ssrEntrypoint: 'resources/app/app.tsx',
     ssrBuildDirectory: Path.public('assets/server')
   }
 }

@@ -2,7 +2,7 @@ import * as dateFns from 'date-fns'
 
 import { Ulid } from '@athenna/common'
 import { Service } from '@athenna/ioc'
-import { Article } from '#src/models/article'
+import { Article } from '#src/database/models/article'
 
 @Service()
 export class ArticleService {

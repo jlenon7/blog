@@ -1,6 +1,6 @@
 import { BaseSeeder } from '@athenna/database'
 import { File, Ulid, Path } from '@athenna/common'
-import { Experience } from '#src/models/experience'
+import { Experience } from '#src/database/models/experience'
 
 export class ExperienceSeeder extends BaseSeeder {
   public async run() {

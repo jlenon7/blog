@@ -109,5 +109,17 @@ export default {
   |
   */
 
-  locale: Env('APP_LOCALE', 'en')
+  locale: Env('APP_LOCALE', 'en'),
+
+  /*
+  |--------------------------------------------------------------------------
+  | Logger configuration
+  |--------------------------------------------------------------------------
+  |
+  | Define some options on how the application will handle logging.
+  |
+  */
+  logger: {
+    prettifyException: Env('LOG_PRETTY', true)
+  }
 }

@@ -143,7 +143,7 @@ build
 
 # Configurations and static files
 !public/**/*.js
-!src/resources/**/*.js
+!resources/**/*.js
 !vite.config.js
 !tailwind.config.js
 !postcss.config.js

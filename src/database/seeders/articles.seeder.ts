@@ -1,5 +1,5 @@
-import { Article } from '#src/models/article'
 import { BaseSeeder } from '@athenna/database'
+import { Article } from '#src/database/models/article'
 import { Path, Ulid, File, String } from '@athenna/common'
 
 export class ArticlesSeeder extends BaseSeeder {

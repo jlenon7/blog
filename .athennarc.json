@@ -8,8 +8,7 @@
     "@athenna/view/providers/ViewProvider",
     "@athenna/http/providers/HttpRouteProvider",
     "@athenna/http/providers/HttpServerProvider",
-    "@athenna/database/providers/DatabaseProvider",
-    "#src/providers/secrets.provider"
+    "@athenna/database/providers/DatabaseProvider"
   ],
   "controllers": [
     "#src/http/controllers/experience.controller",
@@ -61,7 +60,7 @@
         "public/**/*",
         "storage/**/*",
         "public/**/.vite/*",
-        "src/resources/**/*.{html,edge}"
+        "resources/**/*"
       ]
     },
     "test": {
@@ -132,12 +131,12 @@
     "crud-service-test": "node_modules/@athenna/database/templates/crud-service-test.edge",
     "crud-controller-test": "node_modules/@athenna/database/templates/crud-controller-test.edge"
   },
-  "models": [
-    "#src/models/article",
-    "#src/models/experience"
-  ],
+  "models": ["#src/database/models/article", "#src/database/models/experience"],
   "middlewares": [
     "#src/http/middlewares/auth.middleware",
     "#src/http/interceptors/response.interceptor"
-  ]
+  ],
+  "directories": {
+    "models": "src/database/models"
+  }
 }

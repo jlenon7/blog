@@ -64,15 +64,6 @@ export default {
       w: 'majority',
       retryWrites: true,
       debug: Env('DB_DEBUG', false)
-    },
-
-    fake: {
-      driver: 'fake',
-      validations: {
-        isToSetAttributes: true,
-        isToValidateUnique: false,
-        isToValidateNullable: false
-      }
     }
   }
 }

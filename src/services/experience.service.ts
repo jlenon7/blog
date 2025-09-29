@@ -1,6 +1,6 @@
 import { Ulid } from '@athenna/common'
 import { Service } from '@athenna/ioc'
-import { Experience } from '#src/models/experience'
+import { Experience } from '#src/database/models/experience'
 
 @Service()
 export class ExperienceService {

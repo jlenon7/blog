@@ -19,12 +19,12 @@ export default defineConfig({
        * Entrypoints of your application. Each entrypoint will
        * result in a separate bundle.
        */
-      entrypoints: ['src/resources/app/root.tsx'],
+      entrypoints: ['resources/app/root.tsx'],
 
       /**
        * Paths to watch and reload the browser on file change.
        */
-      reload: ['src/resources/views/**/*.edge', 'src/resources/app/**/*']
+      reload: ['resources/views/**/*.edge', 'resources/app/**/*']
     }),
     react()
   ]

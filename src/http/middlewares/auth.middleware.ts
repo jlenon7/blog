@@ -10,7 +10,7 @@ export class AuthMiddleware implements MiddlewareContract {
       throw new UnauthorizedException()
     }
 
-    if (apiKey !== Config.get('secrets.API_KEY')) {
+    if (apiKey !== Env('API_KEY')) {
       throw new UnauthorizedException()
     }
   }

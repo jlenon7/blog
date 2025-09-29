@@ -32,21 +32,7 @@
     "make:view": "@athenna/view/commands/MakeViewCommand",
     "serve": {
       "path": "@athenna/core/commands/ServeCommand",
-      "stayAlive": true,
-      "nodemon": {
-        "ignore": [
-          ".git",
-          ".github",
-          ".idea",
-          ".vscode",
-          ".fleet",
-          "public",
-          "*.edge",
-          "src/resources/**/*",
-          "vite.config.{js,ts,mjs}",
-          "node_modules/**/node_modules"
-        ]
-      }
+      "stayAlive": true
     },
     "build": {
       "path": "@athenna/core/commands/BuildCommand",

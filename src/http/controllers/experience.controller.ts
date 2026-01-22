@@ -24,7 +24,7 @@ export class ExperienceController {
         'company',
         'duration',
         'start_date',
-        'end_Date',
+        'end_date',
         'base64_company_logo'
       ])
     )
@@ -40,7 +40,7 @@ export class ExperienceController {
         'company',
         'duration',
         'start_date',
-        'end_Date',
+        'end_date',
         'base64_company_logo'
       ])
     )

@@ -11,11 +11,20 @@ export class ExperienceSeeder extends BaseSeeder {
 
     await Experience.create({
       id: Ulid.generate(),
+      role: 'Software Engineer',
+      company: 'Arena',
+      base64_company_logo: images.Arena,
+      start_date: Experience.getInitOfDayDate(6, 2025),
+      end_date: null
+    })
+
+    await Experience.create({
+      id: Ulid.generate(),
       role: 'System Engineer',
       company: 'Cloudflare',
       base64_company_logo: images.Cloudflare,
-      start_date: Experience.getDate(6, 2024),
-      end_date: null
+      start_date: Experience.getInitOfDayDate(6, 2024),
+      end_date: Experience.getInitOfDayDate(6, 2025)
     })
 
     await Experience.create({
@@ -23,7 +32,7 @@ export class ExperienceSeeder extends BaseSeeder {
       role: 'Contributor',
       company: 'Node.js',
       base64_company_logo: images['Node.js'],
-      start_date: Experience.getDate(2, 2023),
+      start_date: Experience.getInitOfDayDate(2, 2023),
       end_date: null
     })
 
@@ -32,7 +41,7 @@ export class ExperienceSeeder extends BaseSeeder {
       role: 'Core Team (Co-Creator)',
       company: 'Athenna Framework',
       base64_company_logo: images['Athenna Framework'],
-      start_date: Experience.getDate(11, 2021),
+      start_date: Experience.getInitOfDayDate(11, 2021),
       end_date: null
     })
 
@@ -41,8 +50,8 @@ export class ExperienceSeeder extends BaseSeeder {
       role: 'Software Engineering Consultant at Reflaunt',
       company: 'Smart Consulting',
       base64_company_logo: images['Smart Consulting'],
-      start_date: Experience.getDate(5, 2023),
-      end_date: Experience.getDate(6, 2024)
+      start_date: Experience.getInitOfDayDate(5, 2023),
+      end_date: Experience.getInitOfDayDate(6, 2024)
     })
 
     await Experience.create({
@@ -50,8 +59,8 @@ export class ExperienceSeeder extends BaseSeeder {
       role: 'Back-end Developer',
       company: 'Semantix',
       base64_company_logo: images.Semantix,
-      start_date: Experience.getDate(3, 2021),
-      end_date: Experience.getDate(5, 2023)
+      start_date: Experience.getInitOfDayDate(3, 2021),
+      end_date: Experience.getInitOfDayDate(5, 2023)
     })
 
     await Experience.create({
@@ -59,8 +68,8 @@ export class ExperienceSeeder extends BaseSeeder {
       role: 'Back-end Developer and DevOps',
       company: 'BraPay',
       base64_company_logo: images.BraPay,
-      start_date: Experience.getDate(5, 2018),
-      end_date: Experience.getDate(3, 2021)
+      start_date: Experience.getInitOfDayDate(5, 2018),
+      end_date: Experience.getInitOfDayDate(3, 2021)
     })
   }
 }

@@ -6,20 +6,16 @@ export class ArticlesSeeder extends BaseSeeder {
   public async run() {
     const articles = [
       {
-        title: 'Heroku alternatives for free API deployment',
-        description:
-          'Needs to deploy an API just to test something quick but now Heroku is paid only? Check out Render.com'
-      },
-      {
         title: 'Using GPT with RAG to answer questions about Athenna',
+        content_path: 'using_gpt_with_rag_to_answer_questions_about_athenna.html',
         description:
           'Showing off how we can use Retrieval-Augmented Generation (RAG) techniques to provide more knowledge to an LLM for better responses.'
       }
     ]
 
     for (const article of articles) {
-      const articlePath = this.getArticlePath(article.title)
-      const content = new File(articlePath).getContentAsStringSync()
+      const contentPath = Path.resources(`articles/${article.content_path}`)
+      const content = new File(contentPath).getContentAsStringSync()
 
       const articleToUpdate = await Article.query()
         .where('title', article.title)
@@ -28,7 +24,7 @@ export class ArticlesSeeder extends BaseSeeder {
       const data = {
         title: article.title,
         description: article.description,
-        content,
+        content_path: article.content_path,
         read_time: `${Math.ceil(content.split(' ').length / 200)} min`
       }
 
@@ -40,9 +36,5 @@ export class ArticlesSeeder extends BaseSeeder {
 
       await Article.create({ id: Ulid.generate(), ...data })
     }
-  }
-
-  public getArticlePath(title: string) {
-    return Path.resources(`articles/${String.toSnakeCase(title)}.html`)
   }
 }

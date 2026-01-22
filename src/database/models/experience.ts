@@ -17,10 +17,10 @@ export class Experience extends BaseModel {
   public base64_company_logo: string
 
   @Column()
-  public start_date: Date
+  public start_date: string
 
   @Column()
-  public end_date: Date
+  public end_date: string | null
 
   @Column({ isCreateDate: true })
   public created_at: Date
@@ -55,7 +55,7 @@ export class Experience extends BaseModel {
     return this
   }
 
-  public static getDate(month: number, year: number) {
+  public static getInitOfDayDate(month: number, year: number) {
     const date = new Date()
 
     date.setDate(1)
@@ -63,7 +63,15 @@ export class Experience extends BaseModel {
     date.setMonth(month - 1)
     date.setFullYear(year)
 
-    return date
+    return date.toISOString()
+  }
+
+  public static getInitOfDayDateFromDate(date: Date) {
+    if (!date) {
+      return null
+    }
+
+    return this.getInitOfDayDate(date.getMonth(), date.getFullYear())
   }
 
   public static async definition(): Promise<Partial<Experience>> {
@@ -72,7 +80,7 @@ export class Experience extends BaseModel {
       role: 'Software Engineer',
       company: String.toSentenceCase(faker.lorem.word()),
       base64_company_logo: '',
-      start_date: this.getDate(6, 2024),
+      start_date: this.getInitOfDayDate(6, 2024),
       end_date: null,
       created_at: new Date(),
       updated_at: new Date(),

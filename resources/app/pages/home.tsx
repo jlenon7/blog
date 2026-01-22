@@ -27,9 +27,9 @@ export function HomePage() {
           packages on NPM, such as Athenna Framework, to support developer
           productivity across the community."
       />
-      <h2 className="flex text-4xl font-bold mb-4 text-[color:--heading]">
-        <FiBriefcase className="mt-0.5 w-9 h-9" />
-        <span className="ml-3">Work experience</span>
+      <h2 className="flex text-3xl font-bold mb-4 text-[color:--heading]">
+        <FiBriefcase className="w-10 h-10" />
+        <span className="mt-1 ml-3">Work experience</span>
       </h2>
       <div className="px-4 border rounded-2xl dark:border-zinc-700/40">
         <ol className="m-4 space-y-4">

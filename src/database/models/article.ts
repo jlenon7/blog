@@ -16,7 +16,7 @@ export class Article extends BaseModel {
   public description: string
 
   @Column()
-  public content: string
+  public content_path: string
 
   @Column({ isCreateDate: true })
   public created_at: Date
@@ -27,19 +27,17 @@ export class Article extends BaseModel {
   @Column({ isDeleteDate: true })
   public deleted_at: Date
 
-  public static async definition(): Promise<Partial<Article>> {
-    const content = `<h1>${String.toSentenceCase(
-      `${faker.lorem.word()} ${faker.lorem.word()} ${faker.lorem.word()}`
-    )}</h1>\n<p class="mt-2">${faker.lorem.paragraphs()}</p>`
+  public content: string
 
+  public static async definition(): Promise<Partial<Article>> {
     return {
       id: faker.string.ulid(),
       title: `${String.toSentenceCase(
         faker.lorem.word()
       )} ${faker.lorem.word()} ${faker.lorem.word()}`,
       description: faker.lorem.paragraph(),
-      read_time: `${Math.ceil(content.split(' ').length / 200)} min`,
-      content,
+      read_time: `${Math.ceil(faker.lorem.paragraph().split(' ').length / 200)} min`,
+      content_path: `${String.toSnakeCase(faker.lorem.word())}.html`,
       created_at: new Date(),
       updated_at: new Date(),
       deleted_at: null

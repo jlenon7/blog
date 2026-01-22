@@ -34,6 +34,7 @@ export type Article = {
   title: string
   read_time: string
   description: string
+  content_path: string
   content: string
   created_at: string
   updated_at: string

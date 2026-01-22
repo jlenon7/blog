@@ -5,31 +5,13 @@ import { Experience } from '#src/database/models/experience'
 @Service()
 export class ExperienceService {
   public async findAll() {
-    const experiences = await Experience.query().findMany()
+    const experiences = await Experience.query()
+      .orderByRaw('end_date IS NULL DESC')
+      .orderBy('end_date', 'desc')
+      .orderBy('start_date', 'desc')
+      .findMany()
 
-    return experiences
-      .map(experience => experience.formatDates())
-      .sort((a, b) => {
-        if (!a.end_date && !b.end_date) {
-          return b.start_date.getTime() - a.start_date.getTime()
-        }
-
-        if (!a.end_date) {
-          return -1
-        }
-
-        if (!b.end_date) {
-          return 1
-        }
-
-        const endDateComparison = b.end_date.getTime() - a.end_date.getTime()
-
-        if (endDateComparison !== 0) {
-          return endDateComparison
-        }
-
-        return b.start_date.getTime() - a.start_date.getTime()
-      })
+    return experiences.map(experience => experience.formatDates())
   }
 
   public async findById(id: string) {
@@ -37,36 +19,30 @@ export class ExperienceService {
   }
 
   public async create(data: Partial<Experience>) {
+    const startDate = new Date(data.start_date)
+    const endDate = data.end_date ? new Date(data.end_date) : null
+
     return Experience.create({
       id: Ulid.generate(),
       company: data.company,
       duration: data.duration,
-      start_date: Experience.getDate(
-        data.start_date.getMonth(),
-        data.start_date.getFullYear()
-      ),
-      end_date: Experience.getDate(
-        data.end_date.getMonth(),
-        data.end_date.getFullYear()
-      ),
+      start_date: Experience.getInitOfDayDateFromDate(startDate),
+     end_date: Experience.getInitOfDayDateFromDate(endDate),
       base64_company_logo: data.base64_company_logo
     })
   }
 
   public async update(id: string, data: Partial<Experience>) {
+    const startDate = new Date(data.start_date)
+    const endDate = data.end_date ? new Date(data.end_date) : null
+
     return Experience.query()
       .where('id', id)
       .update({
         company: data.company,
         duration: data.duration,
-        start_date: Experience.getDate(
-          data.start_date.getMonth(),
-          data.start_date.getFullYear()
-        ),
-        end_date: Experience.getDate(
-          data.end_date.getMonth(),
-          data.end_date.getFullYear()
-        ),
+        start_date: Experience.getInitOfDayDateFromDate(startDate),
+        end_date: Experience.getInitOfDayDateFromDate(endDate),
         base64_company_logo: data.base64_company_logo
       })
   }
